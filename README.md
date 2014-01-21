@@ -1,4 +1,4 @@
 basic-web-app
 =============
 
-Basic WebApp framework
+Basic Webapp development environment
