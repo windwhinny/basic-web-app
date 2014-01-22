@@ -34,9 +34,14 @@ if(typeof(define)!='undefined'){
 }
 
 if(typeof(module)!='undefined'){
- config.baseUrl="./public/js";
- config.out="./build/js/build.js";
+ config.baseUrl="src/js";
+ config.out="public/js/build.js";
  config.include=['init'];
  config.wrap=true;
+  console.log(config);
+ for(i in config.paths){
+   var path=config.paths[i]; 
+   config.paths[i]="../"+path;
+ }
  module.exports=config; 
 }

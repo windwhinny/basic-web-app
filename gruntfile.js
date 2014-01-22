@@ -4,13 +4,13 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         requirejs: {
             compile: {
-                options:require('./public/js/init')
+                options:require('./src/js/init')
             }
         },
         less:{
           build:{
             files:{
-              'build/css/build.css':'public/less/init.less'
+              'build/css/build.css':'src/less/init.less'
             }
           },
           options:{
@@ -22,7 +22,7 @@ module.exports = function(grunt) {
                 options: {
                     file: 'server.js',
                     args: [],
-                    ignoredFiles: ['README.md', 'node_modules/**', 'public/**'],
+                    ignoredFiles: ['README.md', 'node_modules/**', 'src/**','public/**'],
                     watchedExtensions: ['js'],
                     watchedFolders: ['.'],
                     debug: true,
