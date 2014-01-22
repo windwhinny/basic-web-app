@@ -22,6 +22,7 @@
     "angular-animate": "~1.2.9",
     "angular-touch": "~1.2.9",
     "requirejs": "~2.1.10",
-    "pure": "~0.3.0"
+    "pure": "~0.3.0",
+    "almond": "~0.2.9"
   }
 }

@@ -1,5 +1,6 @@
 var config={
   baseUrl:'/js',
+  waiteSeconds:300,
   paths:{
     angular:'lib/angular/angular',
     'angular-resource':'lib/angular-resource/angular-resource',
@@ -38,7 +39,7 @@ if(typeof(module)!='undefined'){
  config.out="public/js/build.js";
  config.include=['init'];
  config.wrap=true;
-  console.log(config);
+ config.name="../lib/almond/almond";
  for(i in config.paths){
    var path=config.paths[i]; 
    config.paths[i]="../"+path;
