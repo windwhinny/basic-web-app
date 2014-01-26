@@ -17,6 +17,11 @@ module.exports = function(grunt) {
         cleancss:true
       }
     },
+		bower:{
+			install:{
+
+			}
+		},
     nodemon: {
       dev: {
         script: 'server.js',
@@ -41,8 +46,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-nodemon');
   grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-contrib-less');
-
+	grunt.loadNpmTasks('grunt-bower-task');
   //task(s).
   grunt.registerTask('default', ['nodemon:dev']);
   grunt.registerTask('build',['requirejs','less'])
+  grunt.registerTask('install',['bower:install'])
 };
