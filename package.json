@@ -26,6 +26,7 @@
     "grunt-nodemon": "~0.2.0",
     "grunt-bower-task": "~0.3.4",
     "grunt-contrib-requirejs": "~0.4.1",
-    "grunt-contrib-less": "~0.9.0"
+    "grunt-contrib-less": "~0.9.0",
+    "grunt-jsbeautifier": "~0.2.6"
   }
 }

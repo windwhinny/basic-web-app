@@ -7,6 +7,30 @@ module.exports = function(grunt) {
         options:require('./src/js/init')
       }
     },
+		jsbeautifier:{
+			files:['src/**/*.js'],
+			options:{
+				js: {
+					braceStyle: "collapse",
+					breakChainedMethods: false,
+					e4x: false,
+					evalCode: false,
+					indentChar: " ",
+					indentLevel: 0,
+					indentSize: 2,
+					indentWithTabs: false,
+					jslintHappy: false,
+					keepArrayIndentation: false,
+					keepFunctionIndentation: false,
+					maxPreserveNewlines: 10,
+					preserveNewlines: true,
+					spaceBeforeConditional: true,
+					spaceInParen: false,
+					unescapeStrings: false,
+					wrapLineLength: 0
+				}
+			}
+		},
     less:{
       build:{
         files:{
@@ -47,8 +71,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-bower-task');
+	grunt.loadNpmTasks('grunt-jsbeautifier');
   //task(s).
   grunt.registerTask('default', ['nodemon:dev']);
   grunt.registerTask('build',['requirejs','less'])
   grunt.registerTask('install',['bower:install'])
+  grunt.registerTask('beautify',['jsbeautifier'])
+	
 };
