@@ -1,6 +1,7 @@
 var express=require('express'),
     app=express(),
     port=3000,
+		gzipStatic=require('connect-gzip-static');
     devMode=(process.env.NODE_ENV=='development')?true:false;
 
 app.use(function(req,res,next){
@@ -8,16 +9,13 @@ app.use(function(req,res,next){
   return next();
 })
 if(devMode){
-  app.use('/js',express.static('./src/js'));
-  app.use('/js/lib',express.static('./src/lib'));
-  app.use('/less',express.static('./src/less'));
-  var staticFileHandler=express.static('./public',{index:'index-dev.html'});
+  app.use('/js',gzipStatic('./src/js'));
+  app.use('/js/lib',gzipStatic('./src/lib'));
+  app.use('/less',gzipStatic('./src/less'));
+  app.use('/',gzipStatic('./public',{index:'index-dev.html'}));
 }else{
-  var staticFileHandler=express.static('./public');
+  app.use('/',gzipStatic('./public'));
 }
-app.use('/views',express.static('./src/views'));
-app.use(staticFileHandler);
-
+app.use('/views',gzipStatic('./src/views'));
 app.listen(port);
-
 console.log("Server run at port "+port);
